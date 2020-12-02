@@ -12,32 +12,40 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "USUARIO")
-public class Usuario {
+@Table(name = "usuario")
+public class Usuario implements java.io.Serializable{
+    /**
+     * serialVersionUID
+     */
+    private static final long serialVersionUID = 6485105191418783803L;
     
     @Id
-    @GeneratedValue
-    @Column(name="alias")
+    @Column(name="alias", length = 45)
     String alias;
     
-    @Column(name="nombre")
-    String nombre;
+    @Column(name="nombre", length = 45)
+    String nombres;
     
-    @Column(name="apellido")
-    String apellido;
+    @Column(name="apellido", length = 45)
+    String apellidos;
     
-    @Column(name="email")
-    String email;
-    
-    @Column(name="celular")
+    @Column(name="celular", length = 45)
     String celular;
-   
-    @Column(name="contraseña")
+    
+    @Column(name="contraseña", length = 45)
     String contraseña;
     
-    @Column(name="fecha")
-    String fecha;
+    @Column(name="email", length = 45)
+    String email;
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getAlias() {
         return alias;
     }
@@ -46,28 +54,12 @@ public class Usuario {
         this.alias = alias;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getNombres() {
+        return nombres;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getApellido() {
-        return apellido;
-    }
-
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getCelular() {
@@ -78,6 +70,14 @@ public class Usuario {
         this.celular = celular;
     }
 
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
     public String getContraseña() {
         return contraseña;
     }
@@ -86,14 +86,8 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public String getFecha() {
-        return fecha;
+    @Override
+    public String toString() {
+        return "Usuario{" + "alias=" + alias + ", nombre=" + nombres + ", apellidos=" + apellidos + ", celular=" + celular + '}';
     }
-
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
-    }
-    
-    
-    
 }
