@@ -5,16 +5,33 @@
  */
 package com.unal.vista;
 
+import com.unal.RedFlix.SpringContext;
+import com.unal.RedFlix.modelos.Repositorio.UsuarioRepositorio;
+import com.unal.RedFlix.modelos.Usuario;
 import java.awt.Component;
+import java.awt.EventQueue;
+import java.util.Optional;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 /**
  *
  * @author USER
  */
-public class VentanaApp extends javax.swing.JFrame {
-
+@SpringBootApplication
+@ComponentScan("com.unal.RedFlix")
+@EntityScan("com.unal.RedFlix.modelos")
+@EnableJpaRepositories("com.unal.RedFlix.modelos.Repositorio")
+public class VentanaApp extends javax.swing.JFrame{
+    UsuarioRepositorio repoUsuario;
     /**
      * Creates new form VentanaApp
      */
@@ -25,6 +42,10 @@ public class VentanaApp extends javax.swing.JFrame {
         }
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public void setRepoUsuario(UsuarioRepositorio repositorio){
+        this.repoUsuario = repositorio;
     }
 
     /**
@@ -388,7 +409,28 @@ public class VentanaApp extends javax.swing.JFrame {
                 System.out.println("A");
                 break;
             case "Buscar":
-                System.out.println("B");
+                String text = jTextFieldAlias.getText();
+                if(!text.isEmpty()){
+                    Optional<Usuario> result = repoUsuario.findById(text);
+                    if(result.isPresent()){
+                        Usuario userFound = result.get();
+                        System.out.println(userFound.toString());
+                        jTextFieldApellido.setText(userFound.getApellidos());
+                        jTextFieldNombre.setText(userFound.getNombres());
+                        jTextFieldEmail.setText(userFound.getEmail());
+                        jTextFieldCelular.setText(userFound.getCelular());
+                        //TO-DO 
+                    }else{
+                        String alertaText = "No se ha encontradro un usuario con ese el alias "+text;
+                        System.out.println(alertaText);
+                        JOptionPane.showMessageDialog(rootPane, alertaText);
+                    }
+                    
+                }else{
+                    String alertaText = "Querido usuario parece que se olvidó colocar el alias a buscar";
+                    System.out.println(alertaText);
+                    JOptionPane.showMessageDialog(rootPane, alertaText);
+                    }
                 break;
             case "Actualizar":
                 System.out.println("C");
@@ -448,4 +490,16 @@ public class VentanaApp extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField jTextFieldTituloS;
     private javax.swing.JTextPane jTextPaneResumen;
     // End of variables declaration//GEN-END:variables
+
+    public static void main(String[] args) {
+        ConfigurableApplicationContext ctx = SpringApplication.run(VentanaApp.class, args);
+        
+        EventQueue.invokeLater(() -> {
+            SpringContext context = new SpringContext();
+            context.setApplicationContext(ctx);
+            VentanaApp ex = ctx.getBean(VentanaApp.class);
+            ex.setVisible(true);
+            ex.setRepoUsuario(ctx.getBean(UsuarioRepositorio.class));
+        });
+    }
 }
