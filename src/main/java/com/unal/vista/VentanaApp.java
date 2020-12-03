@@ -61,22 +61,22 @@ public class VentanaApp extends javax.swing.JFrame {
 
         jTabbedPane = new javax.swing.JTabbedPane();
         jPanelUsuario = new javax.swing.JPanel();
-        jLabelNombre = new javax.swing.JLabel();
-        jTextFieldNombre = new javax.swing.JFormattedTextField();
-        jLabelApellido = new javax.swing.JLabel();
-        jTextFieldApellido = new javax.swing.JFormattedTextField();
-        jLabelEmail = new javax.swing.JLabel();
-        jTextFieldEmail = new javax.swing.JFormattedTextField();
-        jLabelCelular = new javax.swing.JLabel();
-        jLabelFechaN = new javax.swing.JLabel();
-        jTextFieldCelular = new javax.swing.JFormattedTextField();
-        jTextFieldFechaN = new javax.swing.JFormattedTextField();
-        jLabelAlias = new javax.swing.JLabel();
-        jTextFieldAlias = new javax.swing.JFormattedTextField();
-        jLabelContrasenia = new javax.swing.JLabel();
-        jTextFieldContrasenia = new javax.swing.JFormattedTextField();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
+        NombreLabel = new javax.swing.JLabel();
+        NombreTexto = new javax.swing.JFormattedTextField();
+        ApellidoLabel = new javax.swing.JLabel();
+        ApellidoTexto = new javax.swing.JFormattedTextField();
+        EmailLabel = new javax.swing.JLabel();
+        EmailTexto = new javax.swing.JFormattedTextField();
+        CelularLabel = new javax.swing.JLabel();
+        FechaNacimientoLabel = new javax.swing.JLabel();
+        CelularTexto = new javax.swing.JFormattedTextField();
+        FechaNacimientoTexto = new javax.swing.JFormattedTextField();
+        AliasLabel = new javax.swing.JLabel();
+        AliasTexto = new javax.swing.JFormattedTextField();
+        ContraseñaLabel = new javax.swing.JLabel();
+        ContraseñaTexto = new javax.swing.JPasswordField();
+        Contraseña2Texto = new javax.swing.JPasswordField();
+        Contraseña2Label = new javax.swing.JLabel();
         jPanelPelicula = new javax.swing.JPanel();
         jLabelTituloP = new javax.swing.JLabel();
         jLabelResumen = new javax.swing.JLabel();
@@ -94,115 +94,132 @@ public class VentanaApp extends javax.swing.JFrame {
         jTextFieldTemporadas = new javax.swing.JFormattedTextField();
         jLabelNEpisodios = new javax.swing.JLabel();
         jTextFieldEpisodios = new javax.swing.JFormattedTextField();
-        cmbAccion = new javax.swing.JComboBox<>();
-        jButtonEjecutar = new javax.swing.JButton();
+        AccionSelector = new javax.swing.JComboBox<>();
+        EjectarAccionBoton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RedFlix App");
+        setBackground(new java.awt.Color(153, 204, 255));
         setLocation(new java.awt.Point(0, 0));
 
-        jLabelNombre.setText("Nombre");
+        jPanelUsuario.setBackground(new java.awt.Color(236, 236, 255));
+        jPanelUsuario.setNextFocusableComponent(AliasTexto);
 
-        jLabelApellido.setText("Apellido");
+        NombreLabel.setText("Nombre");
 
-        jLabelEmail.setText("E-mail");
+        NombreTexto.setNextFocusableComponent(ApellidoTexto);
 
-        jLabelCelular.setText("Celular");
+        ApellidoLabel.setText("Apellido");
 
-        jLabelFechaN.setText("Fecha de Nacimiento");
+        ApellidoTexto.setNextFocusableComponent(CelularTexto);
 
-        jTextFieldCelular.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        EmailLabel.setText("E-mail");
 
-        jTextFieldFechaN.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
-        jTextFieldFechaN.addActionListener(new java.awt.event.ActionListener() {
+        EmailTexto.setNextFocusableComponent(NombreTexto);
+
+        CelularLabel.setText("Celular");
+
+        FechaNacimientoLabel.setText("Fecha de Nacimiento");
+
+        CelularTexto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        CelularTexto.setNextFocusableComponent(FechaNacimientoTexto);
+
+        FechaNacimientoTexto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter()));
+        FechaNacimientoTexto.setNextFocusableComponent(ContraseñaTexto);
+        FechaNacimientoTexto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldFechaNActionPerformed(evt);
+                FechaNacimientoTextoActionPerformed(evt);
             }
         });
 
-        jLabelAlias.setText("Alias");
+        AliasLabel.setText("Alias");
 
-        jLabelContrasenia.setText("Contraseña");
+        AliasTexto.setNextFocusableComponent(EmailTexto);
+
+        ContraseñaLabel.setText("Contraseña");
+
+        ContraseñaTexto.setNextFocusableComponent(ContraseñaTexto);
+
+        Contraseña2Texto.setNextFocusableComponent(AccionSelector);
+
+        Contraseña2Label.setText("Confirmacion");
 
         javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
         jPanelUsuarioLayout.setHorizontalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addContainerGap()
+                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                        .addComponent(jLabelNombre)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelApellido)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelUsuarioLayout.createSequentialGroup()
-                        .addComponent(jLabelCelular)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabelAlias)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelUsuarioLayout.createSequentialGroup()
-                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelUsuarioLayout.createSequentialGroup()
-                                .addComponent(jLabelEmail)
+                        .addComponent(CelularLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                                .addComponent(AliasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 344, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelUsuarioLayout.createSequentialGroup()
-                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelUsuarioLayout.createSequentialGroup()
-                                        .addComponent(jLabelFechaN)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldFechaN))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelUsuarioLayout.createSequentialGroup()
-                                        .addComponent(jLabelContrasenia)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(AliasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(46, 46, 46))
+                                .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(EmailTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                                    .addComponent(ApellidoTexto)))
+                            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(NombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ContraseñaLabel)
+                                    .addComponent(Contraseña2Label))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(CelularTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
+                                        .addComponent(NombreTexto))
+                                    .addComponent(Contraseña2Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ContraseñaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(FechaNacimientoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ApellidoLabel))
+                                .addGap(18, 18, 18)
+                                .addComponent(FechaNacimientoTexto)))
+                        .addGap(0, 61, Short.MAX_VALUE))))
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelNombre)
-                    .addComponent(jTextFieldNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelApellido)
-                    .addComponent(jTextFieldApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(AliasLabel)
+                    .addComponent(AliasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EmailLabel)
+                    .addComponent(EmailTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEmail)
-                    .addComponent(jTextFieldEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(NombreLabel)
+                    .addComponent(NombreTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ApellidoLabel)
+                    .addComponent(ApellidoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCelular)
-                    .addComponent(jTextFieldCelular, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAlias)
-                    .addComponent(jTextFieldAlias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CelularLabel)
+                    .addComponent(CelularTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FechaNacimientoLabel)
+                    .addComponent(FechaNacimientoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelFechaN)
-                    .addComponent(jTextFieldFechaN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ContraseñaLabel)
+                    .addComponent(ContraseñaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelContrasenia)
-                    .addComponent(jTextFieldContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(7, Short.MAX_VALUE))
+                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Contraseña2Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Contraseña2Label))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
-        jLabelNombre.getAccessibleContext().setAccessibleDescription("");
+        NombreLabel.getAccessibleContext().setAccessibleDescription("");
+        Contraseña2Label.getAccessibleContext().setAccessibleName("");
 
         jTabbedPane.addTab("Usuario", jPanelUsuario);
 
@@ -240,7 +257,7 @@ public class VentanaApp extends javax.swing.JFrame {
                                 .addComponent(jLabelDirector)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldDirector)))))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         jPanelPeliculaLayout.setVerticalGroup(
             jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,7 +303,7 @@ public class VentanaApp extends javax.swing.JFrame {
                     .addGroup(jPanelSerieLayout.createSequentialGroup()
                         .addComponent(jLabelTituloS)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextFieldTituloS, javax.swing.GroupLayout.DEFAULT_SIZE, 494, Short.MAX_VALUE)
+                        .addComponent(jTextFieldTituloS, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
                         .addGap(18, 18, 18))
                     .addGroup(jPanelSerieLayout.createSequentialGroup()
                         .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -318,22 +335,23 @@ public class VentanaApp extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Serie", jPanelSerie);
 
-        cmbAccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una acción", "Agregar", "Buscar", "Actualizar", "Borrar" }));
-        cmbAccion.addItemListener(new java.awt.event.ItemListener() {
+        AccionSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una acción", "Agregar", "Buscar", "Actualizar", "Borrar" }));
+        AccionSelector.setNextFocusableComponent(EjectarAccionBoton);
+        AccionSelector.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                cmbAccionItemStateChanged(evt);
+                AccionSelectorItemStateChanged(evt);
             }
         });
-        cmbAccion.addActionListener(new java.awt.event.ActionListener() {
+        AccionSelector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbAccionActionPerformed(evt);
+                AccionSelectorActionPerformed(evt);
             }
         });
 
-        jButtonEjecutar.setText("Ejecutar");
-        jButtonEjecutar.addActionListener(new java.awt.event.ActionListener() {
+        EjectarAccionBoton.setText("Ejecutar");
+        EjectarAccionBoton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEjecutarActionPerformed(evt);
+                EjectarAccionBotonActionPerformed(evt);
             }
         });
 
@@ -347,9 +365,9 @@ public class VentanaApp extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cmbAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(AccionSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEjecutar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(EjectarAccionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -359,64 +377,68 @@ public class VentanaApp extends javax.swing.JFrame {
                 .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(cmbAccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonEjecutar))
+                    .addComponent(AccionSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EjectarAccionBoton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldFechaNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFechaNActionPerformed
+    private void FechaNacimientoTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaNacimientoTextoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldFechaNActionPerformed
+    }//GEN-LAST:event_FechaNacimientoTextoActionPerformed
 
     private void jTextFieldTemporadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemporadasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldTemporadasActionPerformed
 
-    private void cmbAccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbAccionActionPerformed
+    private void AccionSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccionSelectorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cmbAccionActionPerformed
+    }//GEN-LAST:event_AccionSelectorActionPerformed
 
-    private void cmbAccionItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbAccionItemStateChanged
+    private void AccionSelectorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_AccionSelectorItemStateChanged
         if (evt.getStateChange() != java.awt.event.ItemEvent.SELECTED) {
             return;
         }
-        String opcionSeleccionada = evt.getItem().toString();
-        //System.out.println(evt.getItem());
-        switch (opcionSeleccionada) {
+        String seleccion = AccionSelector.getSelectedItem().toString();
+        switch (seleccion) {
             case "Agregar":
-                preparacionAgregar();
+                ActivarCampos(true);
                 break;
             case "Buscar":
-
+                ActivarCampos(false);
+                AliasTexto.setEnabled(true); 
                 break;
             case "Actualizar":
-
+                ActivarCampos(true);
                 break;
             case "Borrar":
-
+                ActivarCampos(false);
+                AliasTexto.setEnabled(true); 
+                break;
+            default:
+                ActivarCampos(false);
                 break;
         }
-    }//GEN-LAST:event_cmbAccionItemStateChanged
+    }//GEN-LAST:event_AccionSelectorItemStateChanged
 
-    private void jButtonEjecutarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEjecutarActionPerformed
-        switch (cmbAccion.getSelectedItem().toString()) {
+    private void EjectarAccionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjectarAccionBotonActionPerformed
+        switch (AccionSelector.getSelectedItem().toString()) {
             case "Agregar":
                 agregarUsuario();
                 break;
             case "Buscar":
-                String text = jTextFieldAlias.getText();
+                String text = AliasTexto.getText();
                 if (!text.isEmpty()) {
                     Optional<Usuario> result = repoUsuario.findById(text);
                     if (result.isPresent()) {
                         Usuario userFound = result.get();
                         System.out.println(userFound.toString());
-                        jTextFieldApellido.setText(userFound.getApellidos());
-                        jTextFieldNombre.setText(userFound.getNombres());
-                        jTextFieldEmail.setText(userFound.getEmail());
-                        jTextFieldCelular.setText(userFound.getCelular());
+                        ApellidoTexto.setText(userFound.getApellidos());
+                        NombreTexto.setText(userFound.getNombres());
+                        EmailTexto.setText(userFound.getEmail());
+                        CelularTexto.setText(userFound.getCelular());
                         //TO-DO 
                     } else {
                         String alertaText = "No se ha encontradro un usuario con ese el alias " + text;
@@ -437,20 +459,31 @@ public class VentanaApp extends javax.swing.JFrame {
                 System.out.println("D");
                 break;
         }
-    }//GEN-LAST:event_jButtonEjecutarActionPerformed
+    }//GEN-LAST:event_EjectarAccionBotonActionPerformed
 
+    private void ActivarCampos(boolean bloqueo){
+        AliasTexto.setEnabled(bloqueo);
+        NombreTexto.setEnabled(bloqueo);
+        ApellidoLabel.setEnabled(bloqueo);
+        AliasTexto.setEnabled(bloqueo);
+        FechaNacimientoTexto.setEnabled(bloqueo);
+        CelularTexto.setEnabled(bloqueo);
+        ContraseñaTexto.setEnabled(bloqueo);
+        Contraseña2Texto.setEnabled(bloqueo);
+    }
+    
     private void agregarUsuario() {
         Usuario nuevoUsuario = new Usuario();
 
-        javax.swing.JFormattedTextField[] camposObligatorios = {jTextFieldAlias,
-            jTextFieldNombre, jTextFieldApellido, jTextFieldContrasenia};
+        javax.swing.JFormattedTextField[] camposObligatorios = {AliasTexto,
+            NombreTexto, ApellidoTexto, jTextFieldContrasenia};
 
-        nuevoUsuario.setAlias(jTextFieldAlias.getText());
-        nuevoUsuario.setApellidos(jTextFieldApellido.getText());
-        nuevoUsuario.setNombres(jTextFieldNombre.getText());
-        nuevoUsuario.setCelular(jTextFieldCelular.getText());
+        nuevoUsuario.setAlias(AliasTexto.getText());
+        nuevoUsuario.setApellidos(ApellidoTexto.getText());
+        nuevoUsuario.setNombres(NombreTexto.getText());
+        nuevoUsuario.setCelular(CelularTexto.getText());
         nuevoUsuario.setContraseña(jTextFieldContrasenia.getText());
-        nuevoUsuario.setEmail(jTextFieldEmail.getText());
+        nuevoUsuario.setEmail(EmailTexto.getText());
 
         for (javax.swing.JFormattedTextField txt : camposObligatorios) {
             if (txt.getText().isEmpty()) {
@@ -481,39 +514,39 @@ public class VentanaApp extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cmbAccion;
-    private javax.swing.JButton jButtonEjecutar;
-    private javax.swing.JLabel jLabelAlias;
+    private javax.swing.JComboBox<String> AccionSelector;
+    private javax.swing.JLabel AliasLabel;
+    private javax.swing.JFormattedTextField AliasTexto;
+    private javax.swing.JLabel ApellidoLabel;
+    private javax.swing.JFormattedTextField ApellidoTexto;
+    private javax.swing.JLabel CelularLabel;
+    private javax.swing.JFormattedTextField CelularTexto;
+    private javax.swing.JLabel Contraseña2Label;
+    private javax.swing.JPasswordField Contraseña2Texto;
+    private javax.swing.JLabel ContraseñaLabel;
+    private javax.swing.JPasswordField ContraseñaTexto;
+    private javax.swing.JButton EjectarAccionBoton;
+    private javax.swing.JLabel EmailLabel;
+    private javax.swing.JFormattedTextField EmailTexto;
+    private javax.swing.JLabel FechaNacimientoLabel;
+    private javax.swing.JFormattedTextField FechaNacimientoTexto;
+    private javax.swing.JLabel NombreLabel;
+    private javax.swing.JFormattedTextField NombreTexto;
     private javax.swing.JLabel jLabelAnio;
-    private javax.swing.JLabel jLabelApellido;
-    private javax.swing.JLabel jLabelCelular;
-    private javax.swing.JLabel jLabelContrasenia;
     private javax.swing.JLabel jLabelDirector;
-    private javax.swing.JLabel jLabelEmail;
-    private javax.swing.JLabel jLabelFechaN;
     private javax.swing.JLabel jLabelNEpisodios;
     private javax.swing.JLabel jLabelNTemporadas;
-    private javax.swing.JLabel jLabelNombre;
     private javax.swing.JLabel jLabelResumen;
     private javax.swing.JLabel jLabelTituloP;
     private javax.swing.JLabel jLabelTituloS;
     private javax.swing.JPanel jPanelPelicula;
     private javax.swing.JPanel jPanelSerie;
     private javax.swing.JPanel jPanelUsuario;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JFormattedTextField jTextFieldAlias;
     private javax.swing.JFormattedTextField jTextFieldAnio;
-    private javax.swing.JFormattedTextField jTextFieldApellido;
-    private javax.swing.JFormattedTextField jTextFieldCelular;
-    private javax.swing.JFormattedTextField jTextFieldContrasenia;
     private javax.swing.JFormattedTextField jTextFieldDirector;
-    private javax.swing.JFormattedTextField jTextFieldEmail;
     private javax.swing.JFormattedTextField jTextFieldEpisodios;
-    private javax.swing.JFormattedTextField jTextFieldFechaN;
-    private javax.swing.JFormattedTextField jTextFieldNombre;
     private javax.swing.JFormattedTextField jTextFieldTemporadas;
     private javax.swing.JFormattedTextField jTextFieldTituloP;
     private javax.swing.JFormattedTextField jTextFieldTituloS;

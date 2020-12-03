@@ -4,6 +4,9 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" value="RedFlix App"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="cc" red="99" type="rgb"/>
+    </Property>
     <Property name="location" type="java.awt.Point" editor="org.netbeans.beaninfo.editors.PointEditor">
       <Point value="[0, 0]"/>
     </Property>
@@ -34,9 +37,9 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="cmbAccion" min="-2" max="-2" attributes="0"/>
+              <Component id="AccionSelector" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButtonEjecutar" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="EjectarAccionBoton" min="-2" pref="100" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -48,8 +51,8 @@
               <Component id="jTabbedPane" min="-2" pref="236" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="cmbAccion" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonEjecutar" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="AccionSelector" min="-2" max="-2" attributes="0"/>
+                  <Component id="EjectarAccionBoton" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -62,6 +65,14 @@
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
         <Container class="javax.swing.JPanel" name="jPanelUsuario">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ec" red="ec" type="rgb"/>
+            </Property>
+            <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="AliasTexto"/>
+            </Property>
+          </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Usuario">
@@ -73,101 +84,98 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="CelularLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabelNombre" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldNombre" min="-2" pref="152" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabelApellido" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldApellido" min="-2" pref="155" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabelCelular" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldCelular" min="-2" pref="135" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="jLabelAlias" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldAlias" min="-2" pref="156" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabelEmail" min="-2" max="-2" attributes="0"/>
+                                      <Component id="AliasLabel" min="-2" pref="100" max="-2" attributes="0"/>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldEmail" min="-2" pref="344" max="-2" attributes="0"/>
+                                      <Component id="AliasTexto" min="-2" pref="156" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="EmailLabel" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="EmailTexto" pref="190" max="32767" attributes="0"/>
+                                          <Component id="ApellidoTexto" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelFechaN" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldFechaN" max="32767" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jLabelContrasenia" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jPasswordField2" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jTextFieldContrasenia" min="-2" pref="170" max="-2" attributes="0"/>
-                                          </Group>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="NombreLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="ContraseñaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="Contraseña2Label" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jPasswordField1" min="-2" pref="147" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="1" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="CelularTexto" pref="156" max="32767" attributes="0"/>
+                                              <Component id="NombreTexto" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Component id="Contraseña2Texto" min="-2" pref="156" max="-2" attributes="0"/>
+                                          <Component id="ContraseñaTexto" min="-2" pref="156" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="FechaNacimientoLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                          <Component id="ApellidoLabel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="FechaNacimientoTexto" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="61" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldNombre" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelApellido" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldApellido" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AliasLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="AliasTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EmailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="EmailTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelEmail" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NombreLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="NombreTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ApellidoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ApellidoTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCelular" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCelular" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAlias" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAlias" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CelularLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="CelularTexto" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FechaNacimientoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FechaNacimientoTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelFechaN" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldFechaN" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ContraseñaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ContraseñaTexto" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldContrasenia" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jPasswordField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="Contraseña2Texto" min="-2" max="-2" attributes="0"/>
+                          <Component id="Contraseña2Label" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="7" max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelNombre">
+            <Component class="javax.swing.JLabel" name="NombreLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nombre"/>
               </Properties>
@@ -175,66 +183,108 @@
                 <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
               </AccessibilityProperties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldNombre">
+            <Component class="javax.swing.JFormattedTextField" name="NombreTexto">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="ApellidoTexto"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelApellido">
+            <Component class="javax.swing.JLabel" name="ApellidoLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apellido"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldApellido">
+            <Component class="javax.swing.JFormattedTextField" name="ApellidoTexto">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="CelularTexto"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelEmail">
+            <Component class="javax.swing.JLabel" name="EmailLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="E-mail"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldEmail">
+            <Component class="javax.swing.JFormattedTextField" name="EmailTexto">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="NombreTexto"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelCelular">
+            <Component class="javax.swing.JLabel" name="CelularLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Celular"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelFechaN">
+            <Component class="javax.swing.JLabel" name="FechaNacimientoLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Fecha de Nacimiento"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldCelular">
+            <Component class="javax.swing.JFormattedTextField" name="CelularTexto">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format format="#0" subtype="-1" type="0"/>
                 </Property>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="FechaNacimientoTexto"/>
+                </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldFechaN">
+            <Component class="javax.swing.JFormattedTextField" name="FechaNacimientoTexto">
               <Properties>
                 <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
                   <Format subtype="0" type="1"/>
                 </Property>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="Contrase&#xf1;aTexto"/>
+                </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldFechaNActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FechaNacimientoTextoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAlias">
+            <Component class="javax.swing.JLabel" name="AliasLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Alias"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldAlias">
+            <Component class="javax.swing.JFormattedTextField" name="AliasTexto">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="EmailTexto"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelContrasenia">
+            <Component class="javax.swing.JLabel" name="Contrase&#xf1;aLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jTextFieldContrasenia">
+            <Component class="javax.swing.JPasswordField" name="Contrase&#xf1;aTexto">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="Contrase&#xf1;aTexto"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField1">
+            <Component class="javax.swing.JPasswordField" name="Contrase&#xf1;a2Texto">
+              <Properties>
+                <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+                  <ComponentRef name="AccionSelector"/>
+                </Property>
+              </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="jPasswordField2">
+            <Component class="javax.swing.JLabel" name="Contrase&#xf1;a2Label">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Confirmacion"/>
+              </Properties>
+              <AccessibilityProperties>
+                <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+              </AccessibilityProperties>
             </Component>
           </SubComponents>
         </Container>
@@ -273,7 +323,7 @@
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                      <EmptySpace pref="146" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -364,7 +414,7 @@
                           <Group type="102" attributes="0">
                               <Component id="jLabelTituloS" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jTextFieldTituloS" pref="494" max="32767" attributes="0"/>
+                              <Component id="jTextFieldTituloS" pref="594" max="32767" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
@@ -435,7 +485,7 @@
         </Container>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JComboBox" name="cmbAccion">
+    <Component class="javax.swing.JComboBox" name="AccionSelector">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="5">
@@ -446,21 +496,24 @@
             <StringItem index="4" value="Borrar"/>
           </StringArray>
         </Property>
+        <Property name="nextFocusableComponent" type="java.awt.Component" editor="org.netbeans.modules.form.ComponentChooserEditor">
+          <ComponentRef name="EjectarAccionBoton"/>
+        </Property>
       </Properties>
       <Events>
-        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cmbAccionItemStateChanged"/>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbAccionActionPerformed"/>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="AccionSelectorItemStateChanged"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AccionSelectorActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonEjecutar">
+    <Component class="javax.swing.JButton" name="EjectarAccionBoton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Ejecutar"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEjecutarActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EjectarAccionBotonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
