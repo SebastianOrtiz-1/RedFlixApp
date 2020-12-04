@@ -344,13 +344,13 @@ public class VentanaApp extends javax.swing.JFrame {
         Usuario nuevoUsuario = new Usuario();
 
         javax.swing.JFormattedTextField[] camposObligatorios = {AliasTexto,
-            NombreTexto, ApellidoTexto, jTextFieldContrasenia};
+            NombreTexto, ApellidoTexto};
 
         nuevoUsuario.setAlias(AliasTexto.getText());
         nuevoUsuario.setApellidos(ApellidoTexto.getText());
         nuevoUsuario.setNombres(NombreTexto.getText());
         nuevoUsuario.setCelular(CelularTexto.getText());
-        nuevoUsuario.setContraseña(jTextFieldContrasenia.getText());
+        nuevoUsuario.setContraseña(String.valueOf(ContraseñaTexto.getPassword()));
         nuevoUsuario.setEmail(EmailTexto.getText());
 
         for (javax.swing.JFormattedTextField txt : camposObligatorios) {
@@ -371,15 +371,7 @@ public class VentanaApp extends javax.swing.JFrame {
         }
     }
 
-    private void preparacionAgregar() {
-        javax.swing.JPanel panelActual = (javax.swing.JPanel) jTabbedPane.getSelectedComponent();
-        for (Component c : panelActual.getComponents()) {
-            //System.out.println(c.getClass().getSimpleName());
-            if (c.getClass().getSimpleName().equalsIgnoreCase("JFormattedTextField")) {
-                c.setEnabled(true);
-            }
-        }
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AccionSelector;
