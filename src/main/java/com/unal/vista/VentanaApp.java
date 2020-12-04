@@ -8,6 +8,7 @@ package com.unal.vista;
 import com.unal.RedFlix.SpringContext;
 import com.unal.RedFlix.modelos.Repositorio.UsuarioRepositorio;
 import com.unal.RedFlix.modelos.Usuario;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.EventQueue;
 import java.util.Optional;
@@ -31,13 +32,13 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @EntityScan("com.unal.RedFlix.modelos")
 @EnableJpaRepositories("com.unal.RedFlix.modelos.Repositorio")
 public class VentanaApp extends javax.swing.JFrame {
-
     UsuarioRepositorio repoUsuario;
 
     /**
      * Creates new form VentanaApp
      */
     public VentanaApp() {
+    this.getContentPane().setBackground(new Color(102, 102, 255));
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e) {
@@ -59,7 +60,6 @@ public class VentanaApp extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane = new javax.swing.JTabbedPane();
         jPanelUsuario = new javax.swing.JPanel();
         NombreLabel = new javax.swing.JLabel();
         NombreTexto = new javax.swing.JFormattedTextField();
@@ -77,48 +77,38 @@ public class VentanaApp extends javax.swing.JFrame {
         ContraseñaTexto = new javax.swing.JPasswordField();
         Contraseña2Texto = new javax.swing.JPasswordField();
         Contraseña2Label = new javax.swing.JLabel();
-        jPanelPelicula = new javax.swing.JPanel();
-        jLabelTituloP = new javax.swing.JLabel();
-        jLabelResumen = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPaneResumen = new javax.swing.JTextPane();
-        jTextFieldTituloP = new javax.swing.JFormattedTextField();
-        jLabelAnio = new javax.swing.JLabel();
-        jTextFieldAnio = new javax.swing.JFormattedTextField();
-        jLabelDirector = new javax.swing.JLabel();
-        jTextFieldDirector = new javax.swing.JFormattedTextField();
-        jPanelSerie = new javax.swing.JPanel();
-        jLabelTituloS = new javax.swing.JLabel();
-        jTextFieldTituloS = new javax.swing.JFormattedTextField();
-        jLabelNTemporadas = new javax.swing.JLabel();
-        jTextFieldTemporadas = new javax.swing.JFormattedTextField();
-        jLabelNEpisodios = new javax.swing.JLabel();
-        jTextFieldEpisodios = new javax.swing.JFormattedTextField();
-        AccionSelector = new javax.swing.JComboBox<>();
         EjectarAccionBoton = new javax.swing.JButton();
+        AccionSelector = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RedFlix App");
-        setBackground(new java.awt.Color(153, 204, 255));
+        setBackground(new java.awt.Color(0, 0, 255));
         setLocation(new java.awt.Point(0, 0));
 
         jPanelUsuario.setBackground(new java.awt.Color(236, 236, 255));
         jPanelUsuario.setNextFocusableComponent(AliasTexto);
 
+        NombreLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         NombreLabel.setText("Nombre");
 
+        NombreTexto.setToolTipText("Los nombres pertenecientes al usuario");
         NombreTexto.setNextFocusableComponent(ApellidoTexto);
 
+        ApellidoLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         ApellidoLabel.setText("Apellido");
 
+        ApellidoTexto.setToolTipText("Los apellidos pertenecientes al usuario");
         ApellidoTexto.setNextFocusableComponent(CelularTexto);
 
+        EmailLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         EmailLabel.setText("E-mail");
 
         EmailTexto.setNextFocusableComponent(NombreTexto);
 
+        CelularLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         CelularLabel.setText("Celular");
 
+        FechaNacimientoLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         FechaNacimientoLabel.setText("Fecha de Nacimiento");
 
         CelularTexto.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
@@ -132,17 +122,44 @@ public class VentanaApp extends javax.swing.JFrame {
             }
         });
 
+        AliasLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         AliasLabel.setText("Alias");
 
+        AliasTexto.setToolTipText("Contiene el alias que sera usado como identificador para el usuario");
         AliasTexto.setNextFocusableComponent(EmailTexto);
 
+        ContraseñaLabel.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         ContraseñaLabel.setText("Contraseña");
 
         ContraseñaTexto.setNextFocusableComponent(ContraseñaTexto);
 
         Contraseña2Texto.setNextFocusableComponent(AccionSelector);
 
+        Contraseña2Label.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
         Contraseña2Label.setText("Confirmacion");
+
+        EjectarAccionBoton.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        EjectarAccionBoton.setText("Ejecutar");
+        EjectarAccionBoton.setToolTipText("Ejecuta la accion actualmente mostrada por el selector");
+        EjectarAccionBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EjectarAccionBotonActionPerformed(evt);
+            }
+        });
+
+        AccionSelector.setFont(new java.awt.Font("Georgia", 0, 11)); // NOI18N
+        AccionSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una acción", "Agregar", "Buscar", "Actualizar", "Borrar" }));
+        AccionSelector.setNextFocusableComponent(EjectarAccionBoton);
+        AccionSelector.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                AccionSelectorItemStateChanged(evt);
+            }
+        });
+        AccionSelector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AccionSelectorActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelUsuarioLayout = new javax.swing.GroupLayout(jPanelUsuario);
         jPanelUsuario.setLayout(jPanelUsuarioLayout);
@@ -151,40 +168,42 @@ public class VentanaApp extends javax.swing.JFrame {
             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(CelularLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                        .addComponent(CelularLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(AliasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(AliasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelUsuarioLayout.createSequentialGroup()
+                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(NombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ContraseñaLabel)
+                            .addComponent(Contraseña2Label))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(CelularTexto)
+                                .addComponent(NombreTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Contraseña2Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ContraseñaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                                .addComponent(AliasLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(AliasTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(EmailLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(68, 68, 68)
+                                .addComponent(AccionSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(EjectarAccionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(EmailTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                                    .addComponent(ApellidoTexto)))
-                            .addGroup(jPanelUsuarioLayout.createSequentialGroup()
-                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(NombreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ContraseñaLabel)
-                                    .addComponent(Contraseña2Label))
-                                .addGap(18, 18, 18)
-                                .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(CelularTexto, javax.swing.GroupLayout.DEFAULT_SIZE, 156, Short.MAX_VALUE)
-                                        .addComponent(NombreTexto))
-                                    .addComponent(Contraseña2Texto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ContraseñaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(FechaNacimientoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(ApellidoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(FechaNacimientoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ApellidoLabel))
-                                .addGap(18, 18, 18)
-                                .addComponent(FechaNacimientoTexto)))
-                        .addGap(0, 61, Short.MAX_VALUE))))
+                                    .addComponent(FechaNacimientoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ApellidoTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EmailTexto, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelUsuarioLayout.setVerticalGroup(
             jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +232,10 @@ public class VentanaApp extends javax.swing.JFrame {
                     .addComponent(ContraseñaTexto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Contraseña2Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Contraseña2Texto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AccionSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(EjectarAccionBoton))
                     .addComponent(Contraseña2Label))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
@@ -221,165 +243,15 @@ public class VentanaApp extends javax.swing.JFrame {
         NombreLabel.getAccessibleContext().setAccessibleDescription("");
         Contraseña2Label.getAccessibleContext().setAccessibleName("");
 
-        jTabbedPane.addTab("Usuario", jPanelUsuario);
-
-        jLabelTituloP.setText("Titulo");
-
-        jLabelResumen.setText("Resumen:");
-
-        jScrollPane1.setViewportView(jTextPaneResumen);
-
-        jLabelAnio.setText("Año");
-
-        jTextFieldAnio.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-
-        jLabelDirector.setText("Director");
-
-        javax.swing.GroupLayout jPanelPeliculaLayout = new javax.swing.GroupLayout(jPanelPelicula);
-        jPanelPelicula.setLayout(jPanelPeliculaLayout);
-        jPanelPeliculaLayout.setHorizontalGroup(
-            jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPeliculaLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelResumen)
-                    .addGroup(jPanelPeliculaLayout.createSequentialGroup()
-                        .addGroup(jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTituloP)
-                            .addComponent(jLabelAnio))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldTituloP)
-                            .addGroup(jPanelPeliculaLayout.createSequentialGroup()
-                                .addComponent(jTextFieldAnio, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(jLabelDirector)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldDirector)))))
-                .addContainerGap(146, Short.MAX_VALUE))
-        );
-        jPanelPeliculaLayout.setVerticalGroup(
-            jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelPeliculaLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelTituloP)
-                    .addComponent(jTextFieldTituloP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(17, 17, 17)
-                .addGroup(jPanelPeliculaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAnio)
-                    .addComponent(jTextFieldAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelDirector)
-                    .addComponent(jTextFieldDirector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabelResumen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
-
-        jTabbedPane.addTab("Pelicula", jPanelPelicula);
-
-        jLabelTituloS.setText("Titulo");
-
-        jLabelNTemporadas.setText("Numero de temporadas");
-
-        jTextFieldTemporadas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldTemporadasActionPerformed(evt);
-            }
-        });
-
-        jLabelNEpisodios.setText("Numero de episodios");
-
-        javax.swing.GroupLayout jPanelSerieLayout = new javax.swing.GroupLayout(jPanelSerie);
-        jPanelSerie.setLayout(jPanelSerieLayout);
-        jPanelSerieLayout.setHorizontalGroup(
-            jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSerieLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelSerieLayout.createSequentialGroup()
-                        .addComponent(jLabelTituloS)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextFieldTituloS, javax.swing.GroupLayout.DEFAULT_SIZE, 594, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
-                    .addGroup(jPanelSerieLayout.createSequentialGroup()
-                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNTemporadas)
-                            .addComponent(jLabelNEpisodios))
-                        .addGap(33, 33, 33)
-                        .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldTemporadas, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldEpisodios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        jPanelSerieLayout.setVerticalGroup(
-            jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelSerieLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelTituloS)
-                    .addComponent(jTextFieldTituloS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNTemporadas)
-                    .addComponent(jTextFieldTemporadas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelSerieLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelNEpisodios)
-                    .addComponent(jTextFieldEpisodios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(63, Short.MAX_VALUE))
-        );
-
-        jTabbedPane.addTab("Serie", jPanelSerie);
-
-        AccionSelector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una acción", "Agregar", "Buscar", "Actualizar", "Borrar" }));
-        AccionSelector.setNextFocusableComponent(EjectarAccionBoton);
-        AccionSelector.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                AccionSelectorItemStateChanged(evt);
-            }
-        });
-        AccionSelector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AccionSelectorActionPerformed(evt);
-            }
-        });
-
-        EjectarAccionBoton.setText("Ejecutar");
-        EjectarAccionBoton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EjectarAccionBotonActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AccionSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(EjectarAccionBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18))
+            .addComponent(jPanelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AccionSelector, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EjectarAccionBoton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -388,10 +260,6 @@ public class VentanaApp extends javax.swing.JFrame {
     private void FechaNacimientoTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaNacimientoTextoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FechaNacimientoTextoActionPerformed
-
-    private void jTextFieldTemporadasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTemporadasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldTemporadasActionPerformed
 
     private void AccionSelectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccionSelectorActionPerformed
         // TODO add your handling code here:
@@ -532,25 +400,7 @@ public class VentanaApp extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField FechaNacimientoTexto;
     private javax.swing.JLabel NombreLabel;
     private javax.swing.JFormattedTextField NombreTexto;
-    private javax.swing.JLabel jLabelAnio;
-    private javax.swing.JLabel jLabelDirector;
-    private javax.swing.JLabel jLabelNEpisodios;
-    private javax.swing.JLabel jLabelNTemporadas;
-    private javax.swing.JLabel jLabelResumen;
-    private javax.swing.JLabel jLabelTituloP;
-    private javax.swing.JLabel jLabelTituloS;
-    private javax.swing.JPanel jPanelPelicula;
-    private javax.swing.JPanel jPanelSerie;
     private javax.swing.JPanel jPanelUsuario;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JFormattedTextField jTextFieldAnio;
-    private javax.swing.JFormattedTextField jTextFieldDirector;
-    private javax.swing.JFormattedTextField jTextFieldEpisodios;
-    private javax.swing.JFormattedTextField jTextFieldTemporadas;
-    private javax.swing.JFormattedTextField jTextFieldTituloP;
-    private javax.swing.JFormattedTextField jTextFieldTituloS;
-    private javax.swing.JTextPane jTextPaneResumen;
     // End of variables declaration//GEN-END:variables
 
     public static void main(String[] args) {
