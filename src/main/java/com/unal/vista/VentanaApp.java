@@ -294,7 +294,11 @@ public class VentanaApp extends javax.swing.JFrame {
     private void EjectarAccionBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EjectarAccionBotonActionPerformed
         switch (AccionSelector.getSelectedItem().toString()) {
             case "Agregar":
-                agregarUsuario();
+                if (VerificarContraseña()){
+                    agregarUsuario();
+                }else{
+                    ContraseñaTexto.setBackground(Color.red);
+                }
                 break;
             case "Buscar":
                 String text = AliasTexto.getText();
@@ -338,6 +342,12 @@ public class VentanaApp extends javax.swing.JFrame {
         CelularTexto.setEnabled(bloqueo);
         ContraseñaTexto.setEnabled(bloqueo);
         Contraseña2Texto.setEnabled(bloqueo);
+    }
+    
+    private boolean VerificarContraseña(){
+        String contraseña1 =String.valueOf(ContraseñaTexto.getPassword());
+        String contraseña2 =String.valueOf(Contraseña2Texto.getPassword());
+        return contraseña1.equals(contraseña2);
     }
     
     private void agregarUsuario() {
