@@ -37,9 +37,20 @@ public class Usuario implements java.io.Serializable{
     
     @Column(name="email", length = 45)
     String email;
+    
+    @Column(name="fecha_nacimiento", length = 45)
+    String fecha_n;
 
     public String getEmail() {
         return email;
+    }
+
+    public String getFecha_n() {
+        return fecha_n;
+    }
+
+    public void setFecha_n(String fecha_n) {
+        this.fecha_n = fecha_n;
     }
 
     public void setEmail(String email) {
